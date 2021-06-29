@@ -1,5 +1,5 @@
 class JokesController < ApplicationController
-    before_action :set_joke, only: [:show]
+    before_action :set_joke, only: [:show, :update]
     def index
         @jokes = Joke.all
         render json: @jokes
@@ -16,6 +16,15 @@ class JokesController < ApplicationController
 
     def show
         render json: @joke
+    end
+
+    def update
+        @joke.update(joke_params)
+        if @joke.errors.any? 
+            render json: @joke.errors, status: :unprocessable_entity
+        else
+            render json: @joke, status: 201
+        end
     end
 
     private
