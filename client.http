@@ -1,2 +1,25 @@
 ### index method
 GET http://localhost:3000/api/jokes
+
+### Successfully posts a joke
+POST http://localhost:3000/api/jokes
+Content-Type: application/json
+
+{
+    "category_id": 1,
+    "body": "The furniture store keeps calling me back, but all I wanted was one night stand."
+}
+
+### Unsuccessfully posts a joke
+POST http://localhost:3000/api/jokes
+Content-Type: application/json
+
+{
+    "body": "The furniture store keeps calling me back, but all I wanted was one night stand."
+}
+
+### show joke id: 1
+GET http://localhost:3000/api/jokes/1
+
+### Unsuccessfully show joke id: 1000
+GET http://localhost:3000/api/jokes/1000
