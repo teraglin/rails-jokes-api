@@ -1,5 +1,5 @@
 class JokesController < ApplicationController
-    before_action :set_joke, only: [:show, :update]
+    before_action :set_joke, only: [:show, :update, :destroy]
     def index
         @jokes = Joke.all
         render json: @jokes
@@ -20,11 +20,17 @@ class JokesController < ApplicationController
 
     def update
         @joke.update(joke_params)
+
         if @joke.errors.any? 
             render json: @joke.errors, status: :unprocessable_entity
         else
             render json: @joke, status: 201
         end
+    end
+
+    def destroy
+        @joke.delete
+        render json: 204
     end
 
     private
@@ -34,8 +40,10 @@ class JokesController < ApplicationController
 
     def set_joke
         begin
-            @joke = Joke.find(params[:id]) 
+            @joke = Joke.find(params[:id])
+            puts "WE ARE RUNNING"
         rescue
+            puts "WE ARE NOT RUNNING"
             render json: {error: "joke not found"}, status: 404
         end
     end
