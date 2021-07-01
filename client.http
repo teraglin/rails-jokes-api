@@ -18,14 +18,14 @@ Content-Type: application/json
     "body": "The furniture store keeps calling me back, but all I wanted was one night stand."
 }
 
-### show joke id: 1
-GET http://localhost:3000/api/jokes/1
+### show joke id: 6
+GET http://localhost:3000/api/jokes/6
 
 ### Unsuccessfully show joke id: 1000
 GET http://localhost:3000/api/jokes/1000
 
-### Successfully update joke with id 1
-PUT http://localhost:3000/api/jokes/1
+### Successfully update joke with id 6
+PUT http://localhost:3000/api/jokes/6
 Content-Type: application/json
 
 {
@@ -33,9 +33,12 @@ Content-Type: application/json
     "category-id": 2
 }
 
-### Successfully delete joke with id 1
+### Successfully delete joke with id 6
 DELETE http://localhost:3000/api/jokes/6
 
-### Unsuccessfully delete joke with id 1
+### Unsuccessfully delete joke with id 6
 DELETE http://localhost:3000/api/jokes/1000
+
+### Random Joke
+GET http://localhost:3000/api/jokes/random?category=puns
  
