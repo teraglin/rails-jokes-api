@@ -4,6 +4,7 @@ GET http://localhost:3000/api/jokes
 ### Successfully posts a joke
 POST http://localhost:3000/api/jokes
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjU3MDE0MjUsInN1YiI6M30.6LKKfFohilJMCb4FQ-p41p4_BVd3wWI0meMGukRzklY
 
 {
     "category_id": 1,
@@ -18,8 +19,8 @@ Content-Type: application/json
     "body": "The furniture store keeps calling me back, but all I wanted was one night stand."
 }
 
-### show joke id: 6
-GET http://localhost:3000/api/jokes/6
+### show joke id: 4
+GET http://localhost:3000/api/jokes/4
 
 ### Unsuccessfully show joke id: 1000
 GET http://localhost:3000/api/jokes/1000
@@ -27,6 +28,7 @@ GET http://localhost:3000/api/jokes/1000
 ### Successfully update joke with id 6
 PUT http://localhost:3000/api/jokes/6
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjU3MjM0MTYsInN1YiI6Mn0.6PVhJo8FE93Y57tJfmp7bVMxF3oJ0V_lE-DMN2Y7mDs
 
 {
     "body": "A programming joke",
@@ -35,10 +37,30 @@ Content-Type: application/json
 
 ### Successfully delete joke with id 6
 DELETE http://localhost:3000/api/jokes/6
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjU3MjM0MTYsInN1YiI6Mn0.6PVhJo8FE93Y57tJfmp7bVMxF3oJ0V_lE-DMN2Y7mDs
 
 ### Unsuccessfully delete joke with id 6
 DELETE http://localhost:3000/api/jokes/1000
 
 ### Random Joke
 GET http://localhost:3000/api/jokes/random?category=puns
- 
+
+### create user
+POST http://localhost:3000/api/auth/sign_up
+Content-Type: application/json
+
+{
+    "username": "Aidan3",
+    "email": "aidan3@test.com",
+    "password": "password",
+    "password_confirmation": "password"
+}
+
+### Sign in with correct details
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/json
+
+{
+    "email": "aidan2@test.com",
+    "password": "password"
+}
